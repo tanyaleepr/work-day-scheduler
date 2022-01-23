@@ -32,6 +32,7 @@ var interval = setInterval(function() {
     $('#currentDay').html(currentDate + " " + momentNow.format('hh:mm:ss A'));
   }, 100);
   
+  // the function that connects the current hour with the schedule time
   function initPage() {
   
     console.log("Current Hour " + hour);
@@ -92,7 +93,7 @@ var interval = setInterval(function() {
     initPage()
     background()
   
-    // Buttons (save to Local Storage)
+    // Buttons which save data collected to Local Storage
     $(".saveBtn").on("click", function(){
       userInput = $(this).siblings(".form-control").val().trim();
       console.log(userInput);
@@ -101,7 +102,7 @@ var interval = setInterval(function() {
       localStorage.setItem(hourSpan, JSON.stringify(userInput));
   
     })
-    // Button for clear the day
+    // Button for clear the day to erase the schedule tasks
     $("#clearDay").on("click", function(){
       localStorage.clear();
       initPage()
